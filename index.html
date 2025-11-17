@@ -2,296 +2,243 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Princess Day for Harshita 👑💙</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Princess Day for Harshita 👑💗</title>
 
   <style>
-    :root {
-      --blue-heart: #4fa8ff;
-      --bg1: #cbe3ff;
-      --bg2: #f3f8ff;
-      --text: #183153;
-      --accent: #5d9bff;
-    }
-
     body {
       margin: 0;
+      padding: 0;
       font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      background: linear-gradient(135deg, #ff99c8, #fcf6bd);
+      color: #4a0e2e;
+      text-align: center;
       overflow-x: hidden;
-      color: var(--text);
-      min-height: 100vh;
     }
-
+    
     .page {
       display: none;
+      padding: 40px 20px;
       min-height: 100vh;
-      padding: 60px 20px;
-      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .active {
+      display: block;
       animation: fadeIn 0.8s ease;
     }
-    .page.active { display: block; }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     h1 {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       margin-bottom: 10px;
-      text-shadow: 0 0 10px white;
-      animation: glow 3s infinite ease-in-out;
+      animation: popIn 0.6s ease;
     }
 
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px white; }
-      50% { text-shadow: 0 0 25px var(--accent); }
-      100% { text-shadow: 0 0 10px white; }
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     p {
       font-size: 1.2rem;
-      line-height: 1.7;
-      max-width: 800px;
-      margin: 0 auto;
+      animation: fadeIn 1.2s ease;
     }
 
     button {
-      margin-top: 25px;
-      padding: 14px 28px;
-      font-size: 1.2rem;
-      background: var(--accent);
-      color: white;
+      margin-top: 30px;
+      padding: 14px 26px;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
+      background: #ff5d8f;
+      color: white;
+      font-size: 1rem;
       cursor: pointer;
-      box-shadow: 0 0 12px rgba(0,0,0,0.2);
       transition: 0.2s;
-    }
-    button:hover {
-      transform: scale(1.07);
-      box-shadow: 0 0 18px rgba(0,0,0,0.3);
+      animation: popIn 0.6s ease;
     }
 
-    /* BLUE HEART FLOAT */
+    button:hover {
+      background: #ff3571;
+      transform: scale(1.05);
+    }
+
+    /* Reasons styling */
+    .reason {
+      background: rgba(255, 255, 255, 0.7);
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 16px;
+      max-width: 600px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-size: 1.2rem;
+      animation: slideUp 0.7s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Floating hearts */
     .heart {
-      position: fixed;
-      font-size: 24px;
-      color: var(--blue-heart);
+      position: absolute;
+      color: #ff4d6d;
+      font-size: 1.5rem;
       animation: floatUp 3s linear forwards;
-      pointer-events: none;
+      opacity: 0.8;
     }
 
     @keyframes floatUp {
       0% { transform: translateY(0) scale(1); opacity: 1; }
-      100% { transform: translateY(-120px) scale(1.8); opacity: 0; }
+      100% { transform: translateY(-150px) scale(1.6); opacity: 0; }
     }
 
-    /* SPARKLE EFFECT */
-    .sparkle {
-      position: fixed;
-      width: 6px;
-      height: 6px;
-      background: white;
-      border-radius: 50%;
-      box-shadow: 0 0 10px white;
-      animation: sparkleAnim 1.8s linear forwards;
-      pointer-events: none;
-    }
-
-    @keyframes sparkleAnim {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.8); opacity: 0.8; }
-      100% { transform: scale(0.5); opacity: 0; }
-    }
-
-    /* Gift box */
+    /* Gift Box */
     #giftBox {
-      font-size: 7rem;
+      font-size: 6rem;
       cursor: pointer;
-      margin-top: 20px;
-      animation: giftBounce 2s infinite ease-in-out;
+      animation: float 2s infinite ease-in-out;
     }
 
-    @keyframes giftBounce {
-      0% { transform: translateY(0) rotate(0); }
-      50% { transform: translateY(-15px) rotate(5deg); }
-      100% { transform: translateY(0) rotate(0); }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
     }
-
-    #giftText {
-      display: none;
-      font-size: 1.25rem;
-      margin-top: 20px;
-      line-height: 1.8;
-      animation: fadeIn 1s ease;
-    }
-
-    #nextFromGift {
-      display: none;
-      margin-top: 25px;
-    }
-
-    /* Bigger emotional paragraphs */
-    .bigText {
-      font-size: 1.35rem;
-      line-height: 1.85;
-      font-weight: 500;
-      margin-top: 20px;
-    }
-
   </style>
 </head>
 
-<body>
+<body >
 
-<audio id="music" src="music/music.mp3"></audio>
+  <!-- PAGE 1 -->
+  <div class="page active" id="page1">
+    <h1>Hi Harshita 👑💗</h1>
+    <p>Are you ready for your Princess Day surprise?</p>
+    <button onclick="startMusic(); nextPage(2)">Yes! ✨</button>
+  </div>
 
-<!-- PAGE 1 -->
-<section id="page1" class="page active">
-  <h1>Hi Harshita 💙👑</h1>
-  <p class="bigText">
-    Today is Princess Day — and there is no universe in which you are not the princess of my world.  
-    I made something special, something soft, something warm… just for you.
-  </p>
-  <button onclick="goTo(2)">Next</button>
-</section>
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+    <h1>For My Princess 💖</h1>
+    <p>I made something magical for you, because you deserve the sweetest things.</p>
+    <button onclick="nextPage(3)">Show me more ✨</button>
+  </div>
 
-<!-- PAGE 2 -->
-<section id="page2" class="page">
-  <h1>Ready for your surprise, princess? 💙</h1>
-  <p class="bigText">I promise it's made with so much love that even the screen is blushing.</p>
-  <button onclick="playMusic(); goTo(3)">Show me 💗</button>
-</section>
+  <!-- PAGE 3 (Reasons) -->
+  <div class="page" id="page3">
+    <h1>Why You're My Princess, Harshita 💗</h1>
 
-<!-- PAGE 3: Reasons -->
-<section id="page3" class="page">
-  <h1>Reasons why you're my princess 💙👑</h1>
-  <div id="reasonsContainer"></div>
-  <button id="reasonsBtn" onclick="showNextReason()">Next ➜</button>
-</section>
+    <div id="reasonsContainer"></div>
 
-<!-- PAGE 4: Gift Box -->
-<section id="page4" class="page">
-  <h1>Your Princess Day Gift 🎁💙</h1>
+    <button onclick="showNextReason()">Next ✨</button>
+  </div>
 
-  <div id="giftBox" onclick="openGift()">🎁</div>
+  <!-- PAGE 4 (Gift Box) -->
+  <div class="page" id="page4">
+    <h1>Open Your Princess Day Gift, Harshita 🎁</h1>
+    <div id="giftBox" onclick="openGift()">🎁</div>
+    <p id="giftText" style="display:none; margin-top:20px; font-size:1.3rem; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.6;">Harshita, you are the softest part of my world. Every little thing about you makes my days sweeter, brighter, and warmer. No matter what changes, no matter where life goes, one thing will always stay the same — you will always be my princess.</p>
+    <button id="nextBtn" style="display:none;" onclick="nextPage(5)">Continue 💗</button>
+  </div>
 
-  <p id="giftText" class="bigText">
-    Harshita,  
-    you are softness in human form.  
-    You are comfort in a voice, warmth in a smile, calmness in chaos.  
-    Every moment with you feels like someone switched the world into “fairytale mode.”  
-    You don’t just make my days better —  
-    you make them meaningful.  
-    You make them worth remembering.  
-    You make *me* better.  
-    And no matter where life goes,  
-    you will forever be my princess —  
-    not because of a crown, but because of your heart. 💙👑✨
-  </p>
+  <!-- PAGE 5 (Final Page) -->
+  <div class="page" id="page5">
+    <h1>My Princess Forever 👑</h1>
+    <p>You will always be my princess.</p>
+  </div>
 
-  <button id="nextFromGift" onclick="goTo(5)">Next 💞</button>
-</section>
-
-<!-- PAGE 5 -->
-<section id="page5" class="page">
-  <h1>Happy Princess Day, Harshita 💙👑</h1>
-  <p class="bigText">
-    I hope today made you smile, even a little.  
-    Because you deserve a universe full of softness, warmth, magic, and love.  
-    And I will spend every day giving you exactly that.  
-    You’re my princess — today, tomorrow, always. 💙✨  
-  </p>
-</section>
-
-<script>
-/* Navigation */
-function goTo(n) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById("page" + n).classList.add('active');
-  spawnEffects();
-}
-
-/* Music */
-function playMusic() {
-  const audio = document.getElementById("music");
-  audio.volume = 0.85;
-  audio.play().catch(()=>{});
-}
-
-/* Combined Hearts + Sparkles */
-function spawnEffects(count = 20) {
-  for (let i = 0; i < count; i++) {
-    // Hearts
-    let h = document.createElement("div");
-    h.className = "heart";
-    h.textContent = "💙";
-    h.style.left = Math.random() * 100 + "vw";
-    h.style.top = "100vh";
-    h.style.animationDuration = (2 + Math.random()*2) + "s";
-    document.body.appendChild(h);
-    setTimeout(() => h.remove(), 3000);
-
-    // Sparkles
-    let s = document.createElement("div");
-    s.className = "sparkle";
-    s.style.left = Math.random() * 100 + "vw";
-    s.style.top = Math.random() * 100 + "vh";
-    document.body.appendChild(s);
-    setTimeout(() => s.remove(), 2000);
-  }
-}
-
-/* Reasons */
+  <script>
+let currentReason = 0;
 const reasons = [
-  "Your smile feels like sunlight breaking through clouds 💙",
-  "You make everything around you softer and warmer ✨",
-  "You care in ways that melt the coldest days 💗",
-  "Your laughter is the cutest music I know 😭",
-  "Every moment with you feels like a dream scene 💙",
-  "You’re my comfort person. My softness. My princess. 👑"
+  "You make every day feel magical.",
+  "Your smile makes everything instantly better.",
+  "You’re the cutest princess in the whole world.",
+  "Your presence makes everything softer and happier.",
+  "My world feels complete because you're in it."
 ];
 
-let idx = 0;
-
 function showNextReason() {
-  const container = document.getElementById("reasonsContainer");
-  const btn = document.getElementById("reasonsBtn");
+  const container = document.getElementById('reasonsContainer');
+  const nextBtn = document.querySelector('#page3 button');
 
-  if (idx < reasons.length) {
-    let div = document.createElement("div");
-    div.className = "reason bigText";
-    div.style.opacity = "0";
-    div.style.transition = "0.6s";
-    div.textContent = reasons[idx];
+  if (currentReason < reasons.length) {
+    const div = document.createElement('div');
+    div.classList.add('reason');
+    div.style.animation = 'slideUp 0.7s ease';
+    div.textContent = reasons[currentReason];
     container.appendChild(div);
+    currentReason++;
+    spawnHearts();
 
-    setTimeout(() => {
-      div.style.opacity = "1";
-      div.style.transform = "translateY(0)";
-    }, 50);
-
-    spawnEffects(12);
-
-    idx++;
-  }
-
-  if (idx === reasons.length) {
-    btn.textContent = "Continue 🎁";
-    btn.onclick = () => goTo(4);
+    if (currentReason === reasons.length) {
+      nextBtn.textContent = "Continue 🎁";
+      nextBtn.onclick = () => nextPage(4);
+    }
   }
 }
 
-/* Gift open */
+// Play music on first yes button
+function startMusic() {
+  const music = document.getElementById("bgMusic");
+  music.volume = 0.7;
+  music.play().catch(err => {
+    console.log("Autoplay blocked, retrying...", err);
+    music.play();
+  });
+}
+
+function nextPage(num) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + num).classList.add('active');
+  spawnHearts();
+}
+
 function openGift() {
-  document.getElementById("giftBox").style.display = "none";
-  document.getElementById("giftText").style.display = "block";
-  document.getElementById("nextFromGift").style.display = "inline-block";
-  spawnEffects(40);
+  const box = document.getElementById('giftBox');
+  const text = document.getElementById('giftText');
+  const next = document.getElementById('nextBtn');
+
+  box.style.display = 'none';
+  text.style.display = 'block';
+  next.style.display = 'inline-block';
+
+  spawnHearts();
+}
+
+function spawnHearts() {
+  for (let i = 0; i < 12; i++) {
+    let heart = document.createElement('div');
+    heart.innerHTML = '💗';
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.bottom = '0px';
+    heart.style.animationDuration = (2 + Math.random() * 2) + 's';
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 3000);
+  }
+}
+
+    const hrs = Math.floor(diff / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    countdown.textContent = `${hrs}h ${mins}m ${secs}s`;  
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
 }
 </script>
+
+  <audio id="bgMusic" src="music/music.mp3" preload="auto"></audio>
 
 </body>
 </html>
